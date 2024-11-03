@@ -1,37 +1,31 @@
-/* Main Body Styles */
 body {
-  background: linear-gradient(25deg, #ff6fa3, #d64f72 50%);
+  background: linear-gradient(25deg, #f181aa, #d36c76 50%);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-family: 'Roboto';
+  font-family: 'Arial', sans-serif; /* More common font for compatibility */
   margin: 0;
-  color: #333;
 }
 
-/* Container for Stopwatch */
 .container {
-  background-color: #fefefe;
+  background-color: #eee9e9;
   border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-  max-width: 400px;
+  max-width: 500px; /* Maximum width for larger screens */
+  width: 90%; /* Full width on smaller screens */
 }
 
-/* Title Styling */
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #333;
-  font-weight: bold;
+  font-size: 2rem; /* Responsive font size */
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-/* Stopwatch Wrapper */
 .stopwatch {
   display: flex;
   flex-direction: column;
@@ -39,99 +33,126 @@ body {
   gap: 20px;
 }
 
-/* Timer Display */
 .timer {
-  font-size: 3rem;
-  color: #444;
-  background-color: #fff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  gap: 5px;
+  font-size: 3rem; /* Responsive timer font size */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center; /* Center the text */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   animation: pulse 1.5s infinite alternate;
 }
-
-.timer span {
-  width: 70px;
-  text-align: center;
-}
-
-/* Animation for Timer */
 @keyframes pulse {
-  0% {
+  from {
       transform: scale(1);
   }
-  100% {
+  to {
       transform: scale(1.05);
   }
 }
 
-/* Controls Styling */
+.timer span {
+  width: 50px; /* Fixed width for uniformity */
+  display: inline-block;
+  text-align: center;
+}
+
 .controls {
   display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
+  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+  gap: 10px; /* Space between buttons */
+  justify-content: center; /* Center the buttons */
 }
 
 button {
-  font-family: Roboto;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem; /* Padding for buttons */
   font-size: 1rem;
-  background-color: #ff4b8f;
-  color: #fff;
+  background-color: #f25191;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease-in-out;
+  flex: 1; /* Make buttons flexible to fill space */
+  min-width: 100px; /* Minimum button width */
 }
 
 button:hover {
-  background-color: #d6376b;
+  background-color: #d72a76; /* Darker shade on hover */
 }
 
-button:active {
-  transform: scale(0.98);
-}
-
-/* Laps Section */
 .lap-title {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  color: #333;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 1.5rem; /* Responsive lap title font size */
+  margin-top: 20px;
 }
 
 .laps {
-  width: 100%;
+  width: 100%; /* Full width for the lap list */
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: none; /* No bullets */
   padding: 0;
   margin: 0;
-  overflow-y: auto;
-  max-height: 200px;
-  background-color: #f9f9f9;
+  overflow-y: auto; /* Scrollable if overflow */
+  max-height: 200px; /* Maximum height for laps */
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 
 li {
-  padding: 1rem;
-  border-bottom: 1px solid #ececec;
-  color: #555;
+  padding: 1rem; /* Padding for each lap */
+  border-bottom: 1px solid #e0e0e0; /* Separator between laps */
 }
 
 li:last-child {
-  border-bottom: none;
+  border-bottom: none; /* Remove last border */
 }
 
 li span {
-  font-weight: bold;
-  color: #444;
+  font-weight: 700; /* Bold lap text */
+}
+
+/* Responsive adjustments for tablets and mobiles */
+@media (max-width: 600px) {
+  .title {
+      font-size: 1.5rem; /* Smaller title font size */
+  }
+
+  .timer {
+      font-size: 2.5rem; /* Smaller timer font size */
+  }
+
+  button {
+      font-size: 0.9rem; /* Smaller button font size */
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .title {
+      font-size: 2rem; /* Medium title for tablets */
+  }
+
+  .timer {
+      font-size: 3rem; /* Medium timer for tablets */
+  }
+
+  button {
+      font-size: 1rem; /* Regular button size */
+  }
+}
+
+@media (min-width: 901px) {
+  .title {
+      font-size: 2.5rem; /* Larger title for desktops */
+  }
+
+  .timer {
+      font-size: 4rem; /* Larger timer for desktops */
+  }
+
+  button {
+      font-size: 1.1rem; /* Larger button font size */
+  }
 }
